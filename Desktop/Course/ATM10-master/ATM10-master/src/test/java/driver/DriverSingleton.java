@@ -14,13 +14,8 @@ public class DriverSingleton {
 
         public static WebDriver getDriver(){
             if(driver == null){
-                System.setProperty("browser","chrome");
-                WebDriverManager.chromedriver().setup();
-                DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-                driver = new ChromeDriver();
+                return DriverFactory.getDriverType(driverName);
             }
-
             return driver;
         }
-
 }
